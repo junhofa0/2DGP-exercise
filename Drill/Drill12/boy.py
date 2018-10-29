@@ -6,6 +6,8 @@ import math
 
 import game_world
 
+#완성
+
 # Boy Run Speed
 # fill expressions correctly
 PIXEL_PER_METER = (10.0 / 0.3)
@@ -13,7 +15,7 @@ RUN_SPEED_KMPH = 20.0
 RUN_SPEED_MPM = (RUN_SPEED_KMPH * 1000.0 / 60.0)
 RUN_SPEED_MPS = (RUN_SPEED_MPM / 60.0)
 RUN_SPEED_PPS = (RUN_SPEED_MPS * PIXEL_PER_METER)
-ROTATE_SPEED_RPS = 4 * 3.141592   # 1초 분의 라디안 값
+ROTATE_SPEED_RPS = 4 * 3.14159265   # 1초 분의 라디안 값
 
 # Boy Action Speed
 # fill expressions correctly
@@ -110,11 +112,11 @@ class SleepState:
         @staticmethod
         def enter(boy, event):
             boy.frame = 0
-            boy.ghost_radian = 3.141592 / 2
+            boy.ghost_radian = 3.14159265 / 2
             boy.count = 40
             boy.center_x = boy.x
             boy.center_y = boy.y + PIXEL_PER_METER * 3
-            boy.degree = -3.141592/2
+            boy.degree = -3.14159265/2
 
 
         @staticmethod
@@ -125,7 +127,7 @@ class SleepState:
         def do(boy):
             boy.frame = (boy.frame + FRAMES_PER_ACTION * ACTION_PER_TIME * game_framework.frame_time) % 8
             if boy.count != 0:
-                boy.ghost_radian -= 3.141592 / 80
+                boy.ghost_radian -= 3.14159265 / 80
                 boy.count -= 1
 
             if boy.count == 0:
@@ -136,17 +138,17 @@ class SleepState:
             if boy.dir == 1:
                 boy.image.opacify(random.randint(0, 100) / 100)
                 boy.image.clip_composite_draw(int(boy.frame) * 100, 300, 100, 100, boy.ghost_radian, '',
-                                              boy.center_x - 25 + 25 *(2**(0.5) )* (1 - boy.ghost_radian)/(3.141592 / 2) + math.cos(boy.degree)* PIXEL_PER_METER * 3,
-                                              boy.center_y - 25 + 25*(2**(0.5) )* (1 - boy.ghost_radian)/(3.141592 / 2) + math.sin(boy.degree)* PIXEL_PER_METER * 3 + 10, 100, 100)
+                                              boy.center_x - 25 + 25 *(2**(0.5) )* (1 - boy.ghost_radian)/(3.14159265 / 2) + math.cos(boy.degree)* PIXEL_PER_METER * 3,
+                                              boy.center_y - 25 + 25*(2**(0.5) )* (1 - boy.ghost_radian)/(3.14159265 / 2) + math.sin(boy.degree)* PIXEL_PER_METER * 3 + 10, 100, 100)
                 boy.image.opacify(1)
-                boy.image.clip_composite_draw(int(boy.frame) * 100, 300, 100, 100, 3.141592 / 2, '', boy.x - 25, boy.y - 25, 100, 100)
+                boy.image.clip_composite_draw(int(boy.frame) * 100, 300, 100, 100, 3.14159265 / 2, '', boy.x - 25, boy.y - 25, 100, 100)
             else:
                 boy.image.opacify(random.randint(0, 100) / 100)
                 boy.image.clip_composite_draw(int(boy.frame) * 100, 200, 100, 100, -boy.ghost_radian, '',
-                                              boy.center_x + 25 - 25*(2**(0.5) ) * (1 - boy.ghost_radian)/(3.141592 / 2) + math.cos(boy.degree) * PIXEL_PER_METER * 3,
-                                              boy.center_y - 25 + 25*(2**(0.5) ) * (1 - boy.ghost_radian)/(3.141592 / 2)+ math.sin(boy.degree) * PIXEL_PER_METER * 3 + 10, 100, 100)
+                                              boy.center_x + 25 - 25*(2**(0.5) ) * (1 - boy.ghost_radian)/(3.14159265 / 2) + math.cos(boy.degree) * PIXEL_PER_METER * 3,
+                                              boy.center_y - 25 + 25*(2**(0.5) ) * (1 - boy.ghost_radian)/(3.14159265 / 2)+ math.sin(boy.degree) * PIXEL_PER_METER * 3 + 10, 100, 100)
                 boy.image.opacify(1)
-                boy.image.clip_composite_draw(int(boy.frame) * 100, 200, 100, 100, -3.141592 / 2, '', boy.x + 25, boy.y - 25, 100, 100)
+                boy.image.clip_composite_draw(int(boy.frame) * 100, 200, 100, 100, -3.14159265 / 2, '', boy.x + 25, boy.y - 25, 100, 100)
 
 
 
