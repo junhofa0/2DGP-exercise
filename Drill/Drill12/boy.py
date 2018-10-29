@@ -136,15 +136,15 @@ class SleepState:
             if boy.dir == 1:
                 boy.image.opacify(random.randint(0, 100) / 100)
                 boy.image.clip_composite_draw(int(boy.frame) * 100, 300, 100, 100, boy.ghost_radian, '',
-                                              boy.center_x - 25 + 50 * (1 - boy.ghost_radian)/(3.141592 / 2) + math.cos(boy.degree)* PIXEL_PER_METER * 3,
-                                              boy.center_y - 25 + 50 * (1 - boy.ghost_radian)/(3.141592 / 2) + math.sin(boy.degree)* PIXEL_PER_METER * 3, 100, 100)
+                                              boy.center_x - 25 + 25 *(2**(0.5) )* (1 - boy.ghost_radian)/(3.141592 / 2) + math.cos(boy.degree)* PIXEL_PER_METER * 3,
+                                              boy.center_y - 25 + 25*(2**(0.5) )* (1 - boy.ghost_radian)/(3.141592 / 2) + math.sin(boy.degree)* PIXEL_PER_METER * 3 + 10, 100, 100)
                 boy.image.opacify(1)
                 boy.image.clip_composite_draw(int(boy.frame) * 100, 300, 100, 100, 3.141592 / 2, '', boy.x - 25, boy.y - 25, 100, 100)
             else:
                 boy.image.opacify(random.randint(0, 100) / 100)
                 boy.image.clip_composite_draw(int(boy.frame) * 100, 200, 100, 100, -boy.ghost_radian, '',
-                                              boy.center_x + 25 - 50 * (1 - boy.ghost_radian)/(3.141592 / 2) + math.cos(boy.degree) * PIXEL_PER_METER * 3,
-                                              boy.center_y - 25 + 50 * (1 - boy.ghost_radian)/(3.141592 / 2)+ math.sin(boy.degree) * PIXEL_PER_METER * 3, 100, 100)
+                                              boy.center_x + 25 - 25*(2**(0.5) ) * (1 - boy.ghost_radian)/(3.141592 / 2) + math.cos(boy.degree) * PIXEL_PER_METER * 3,
+                                              boy.center_y - 25 + 25*(2**(0.5) ) * (1 - boy.ghost_radian)/(3.141592 / 2)+ math.sin(boy.degree) * PIXEL_PER_METER * 3 + 10, 100, 100)
                 boy.image.opacify(1)
                 boy.image.clip_composite_draw(int(boy.frame) * 100, 200, 100, 100, -3.141592 / 2, '', boy.x + 25, boy.y - 25, 100, 100)
 
