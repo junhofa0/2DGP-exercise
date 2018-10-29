@@ -124,10 +124,16 @@ class SleepState:
         @staticmethod
         def do(boy):
             boy.frame = (boy.frame + FRAMES_PER_ACTION * ACTION_PER_TIME * game_framework.frame_time) % 8
+            if boy.count != 0:
+                boy.ghost_radian -= 3.141592 / 80
+                boy.count -= 1
+
+            if boy.count == 0:
+                boy.degree += ROTATE_SPEED_RPS * game_framework.frame_time
 
         @staticmethod
         def draw(boy):
-              if boy.dir == 1:
+            if boy.dir == 1:
                 boy.image.opacify(random.randint(0, 100) / 100)
                 boy.image.clip_composite_draw(int(boy.frame) * 100, 300, 100, 100, boy.ghost_radian, '',
                                               boy.center_x - 25 + 50 * (1 - boy.ghost_radian)/(3.141592 / 2) + math.cos(boy.degree)* PIXEL_PER_METER * 3,
