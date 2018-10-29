@@ -110,6 +110,11 @@ class SleepState:
         @staticmethod
         def enter(boy, event):
             boy.frame = 0
+            boy.ghost_radian = 3.141592 / 2
+            boy.count = 40
+            boy.center_x = boy.x
+            boy.center_y = boy.y + PIXEL_PER_METER * 3
+            boy.degree = -3.141592/2
 
 
         @staticmethod
