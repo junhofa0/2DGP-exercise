@@ -76,6 +76,8 @@ class WalkingState:
         boy.x = clamp((PIXEL_PER_METER * 7) / boy.bg.h * boy.y, boy.x, boy.bg.w - (PIXEL_PER_METER * 7) / boy.bg.h * boy.y)
         boy.y = clamp(PIXEL_PER_METER * 2, boy.y, boy.bg.h - PIXEL_PER_METER * 2)
 
+        #완성
+
 
     @staticmethod
     def draw(boy):
