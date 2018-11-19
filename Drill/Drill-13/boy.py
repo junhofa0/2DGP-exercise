@@ -73,8 +73,8 @@ class WalkingState:
         # 직선의 방정식 : 높이가 제일 위 일 때의 x 허용치는 210
         #                높이가 제일 아래 일 떄의 x 허용치는 0
         # 따라서 boy의 x 좌표를 높이에 대한 허용치 값으로 포개면 됨.
-        boy.x = clamp(0, boy.x, boy.bg.w)
-        boy.y = clamp(0, boy.y, boy.bg.h)
+        boy.x = clamp((PIXEL_PER_METER * 7) / boy.bg.h * boy.y, boy.x, boy.bg.w)
+        boy.y = clamp(PIXEL_PER_METER * 2, boy.y, boy.bg.h - PIXEL_PER_METER * 2)
 
 
     @staticmethod
