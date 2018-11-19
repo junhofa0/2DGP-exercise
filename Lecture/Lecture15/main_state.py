@@ -7,7 +7,7 @@ import game_framework
 import game_world
 
 from boy import Boy
-from background import FixedBackground as Background
+from background import InfiniteBackground as Background
 
 
 name = "MainState"
@@ -29,9 +29,9 @@ def enter():
     boy.set_background(background)
 
 
-
 def exit():
     game_world.clear()
+
 
 def pause():
     pass
