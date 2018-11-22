@@ -151,7 +151,6 @@ class Boy:
     def eat(self, ball):
         self.eat_sound.play()
 
-
     def get_bb(self):
         return self.x - 50, self.y - 50, self.x + 50, self.y + 50
 
