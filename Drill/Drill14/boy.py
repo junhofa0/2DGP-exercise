@@ -129,6 +129,7 @@ class Boy:
         self.eat_sound.set_volume(32)
 
     def eat(self, ball):
+        self.eat_count += 1
         self.eat_sound.play()
 
     def set_background(self, bg):
@@ -153,9 +154,9 @@ class Boy:
 
     def draw(self):
         self.cur_state.draw(self)
-        self.font.draw(self.x - 60, self.y + 50, '(Time: %3.2f)' % get_time(), (255, 255, 0))
-        #fill here
         draw_rectangle(*self.get_bb())
+        self.font.draw(self.x - self.bg.window_left - 30, self.y - self.bg.window_bottom + 50,
+                       'count = %d' % self.eat_count, (0, 0, 255))
 
     def handle_event(self, event):
         if (event.type, event.key) in key_event_table:
