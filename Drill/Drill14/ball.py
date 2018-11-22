@@ -7,7 +7,7 @@ import main_state
 class Ball:
     image = None
     bg = None
-    
+
     def __init__(self):
         if Ball.bg == None:
             Ball.bg = main_state.background
@@ -19,8 +19,7 @@ class Ball:
         return self.x - 10, self.y - 10, self.x + 10, self.y + 10
 
     def draw(self):
-        self.image.draw(self.x, self.y)
-        draw_rectangle(*self.get_bb())
+        self.image.draw(self.x - self.bg.window_left, self.y - self.bg.window_bottom)
 
     def update(self):
         self.y -= self.fall_speed * game_framework.frame_time

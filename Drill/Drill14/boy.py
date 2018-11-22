@@ -154,7 +154,6 @@ class Boy:
 
     def draw(self):
         self.cur_state.draw(self)
-        draw_rectangle(*self.get_bb())
         self.font.draw(self.x - self.bg.window_left - 30, self.y - self.bg.window_bottom + 50,
                        'count = %d' % self.eat_count, (0, 0, 255))
 
